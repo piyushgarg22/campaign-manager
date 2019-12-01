@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/campaign-manager/static/css/main.d1f65b82.chunk.css",
-    "main.js": "/campaign-manager/static/js/main.5ddb3a61.chunk.js",
-    "main.js.map": "/campaign-manager/static/js/main.5ddb3a61.chunk.js.map",
+    "main.js": "/campaign-manager/static/js/main.7dd9759b.chunk.js",
+    "main.js.map": "/campaign-manager/static/js/main.7dd9759b.chunk.js.map",
     "runtime-main.js": "/campaign-manager/static/js/runtime-main.d0075fb5.js",
     "runtime-main.js.map": "/campaign-manager/static/js/runtime-main.d0075fb5.js.map",
     "static/js/2.b5dbefc9.chunk.js": "/campaign-manager/static/js/2.b5dbefc9.chunk.js",
     "static/js/2.b5dbefc9.chunk.js.map": "/campaign-manager/static/js/2.b5dbefc9.chunk.js.map",
     "index.html": "/campaign-manager/index.html",
-    "precache-manifest.cd6f73fe80291189559718a5778a9a33.js": "/campaign-manager/precache-manifest.cd6f73fe80291189559718a5778a9a33.js",
+    "precache-manifest.fafe848d7c3865f1e87b26deb79f7f62.js": "/campaign-manager/precache-manifest.fafe848d7c3865f1e87b26deb79f7f62.js",
     "service-worker.js": "/campaign-manager/service-worker.js",
     "static/css/main.d1f65b82.chunk.css.map": "/campaign-manager/static/css/main.d1f65b82.chunk.css.map"
   },
@@ -16,6 +16,6 @@
     "static/js/runtime-main.d0075fb5.js",
     "static/js/2.b5dbefc9.chunk.js",
     "static/css/main.d1f65b82.chunk.css",
-    "static/js/main.5ddb3a61.chunk.js"
+    "static/js/main.7dd9759b.chunk.js"
   ]
 }
