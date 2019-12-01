@@ -1,21 +1,21 @@
 {
   "files": {
-    "main.css": "/campaign-manager/static/css/main.396a4505.chunk.css",
-    "main.js": "/campaign-manager/static/js/main.99143d96.chunk.js",
-    "main.js.map": "/campaign-manager/static/js/main.99143d96.chunk.js.map",
+    "main.css": "/campaign-manager/static/css/main.d1f65b82.chunk.css",
+    "main.js": "/campaign-manager/static/js/main.5ddb3a61.chunk.js",
+    "main.js.map": "/campaign-manager/static/js/main.5ddb3a61.chunk.js.map",
     "runtime-main.js": "/campaign-manager/static/js/runtime-main.d0075fb5.js",
     "runtime-main.js.map": "/campaign-manager/static/js/runtime-main.d0075fb5.js.map",
-    "static/js/2.a7855aa3.chunk.js": "/campaign-manager/static/js/2.a7855aa3.chunk.js",
-    "static/js/2.a7855aa3.chunk.js.map": "/campaign-manager/static/js/2.a7855aa3.chunk.js.map",
+    "static/js/2.b5dbefc9.chunk.js": "/campaign-manager/static/js/2.b5dbefc9.chunk.js",
+    "static/js/2.b5dbefc9.chunk.js.map": "/campaign-manager/static/js/2.b5dbefc9.chunk.js.map",
     "index.html": "/campaign-manager/index.html",
-    "precache-manifest.8cf283a3434c8ecdb7a25d2b0c7b6b69.js": "/campaign-manager/precache-manifest.8cf283a3434c8ecdb7a25d2b0c7b6b69.js",
+    "precache-manifest.cd6f73fe80291189559718a5778a9a33.js": "/campaign-manager/precache-manifest.cd6f73fe80291189559718a5778a9a33.js",
     "service-worker.js": "/campaign-manager/service-worker.js",
-    "static/css/main.396a4505.chunk.css.map": "/campaign-manager/static/css/main.396a4505.chunk.css.map"
+    "static/css/main.d1f65b82.chunk.css.map": "/campaign-manager/static/css/main.d1f65b82.chunk.css.map"
   },
   "entrypoints": [
     "static/js/runtime-main.d0075fb5.js",
-    "static/js/2.a7855aa3.chunk.js",
-    "static/css/main.396a4505.chunk.css",
-    "static/js/main.99143d96.chunk.js"
+    "static/js/2.b5dbefc9.chunk.js",
+    "static/css/main.d1f65b82.chunk.css",
+    "static/js/main.5ddb3a61.chunk.js"
   ]
 }
