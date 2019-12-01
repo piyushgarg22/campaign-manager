@@ -1,5 +1,3 @@
-// import React from 'react'; import CampaignList from './campaignList'; import
-// Header from './header'; import Tabs from './tabs';
 import React, { useState } from 'react';
 import Calendar from '../assets/images/calendar.png';
 import Csv from '../assets/images/file.png';
@@ -185,20 +183,25 @@ const CampaignList = () => {
     var myDate = e.target.value;
     myDate = myDate.split("-");
     var newDate = myDate[1] + "/" + myDate[0] + "/" + myDate[2];
-
+    return new Date(newDate).getTime();
     console.log(new Date(newDate).getTime())
 
   }
-  console.log(campaigns)
+  // console.log(campaigns)
 
+
+
+  
   const handleEventDate = (e, id) => {
 
     debugger;
-    let newArray = campaigns.data;
-    let data = [...newArray]
-    data[id].createdOn = e.target.value;
+    let newArray = campaigns;
+    // let data = [...newArray]
+    // var temp = newArray.data[id].createdOn
+    // temp = e.target.value
+    newArray.data[id].createdOn = e.target.value;
     // var newss = newEventDate
-    setCampaigns(campaigns.data)
+    setCampaigns(newArray,()=>console.log(campaigns))
 
   }
 
@@ -250,7 +253,8 @@ const CampaignList = () => {
                     <span>Schedule Again
                       <input
                         onChange={e => handleEventDate(e, index)}
-                        value={new Date(campaign.createdOn).getDate() + "/" + new Date(campaign.createdOn).getMonth() + "/" + new Date(campaign.createdOn).getFullYear()}/>
+                        // value={new Date(campaign.createdOn).getDate() + "/" + new Date(campaign.createdOn).getMonth() + "/" + new Date(campaign.createdOn).getFullYear()}
+                        />
 
                     </span>
                   </a>
