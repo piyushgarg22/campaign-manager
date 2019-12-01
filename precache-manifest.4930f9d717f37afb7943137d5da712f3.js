@@ -1,18 +1,18 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "785a4c70db68f5953f489305c377ffab",
+    "revision": "f7d69d006def54d9b20bee65b7431d5e",
     "url": "/campaign-manager/index.html"
   },
   {
-    "revision": "7cb141f38d686331c26f",
-    "url": "/campaign-manager/static/css/main.31502832.chunk.css"
+    "revision": "11d136dd8bbefa3148a0",
+    "url": "/campaign-manager/static/css/main.4c0cce6c.chunk.css"
   },
   {
     "revision": "c45f37a0a9a90ede11ed",
     "url": "/campaign-manager/static/js/2.267b7031.chunk.js"
   },
   {
-    "revision": "7cb141f38d686331c26f",
+    "revision": "11d136dd8bbefa3148a0",
     "url": "/campaign-manager/static/js/main.33b6484c.chunk.js"
   },
   {
