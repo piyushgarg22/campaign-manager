@@ -1,14 +1,12 @@
-// import React from 'react';
-import React, { useEffect, useState } from 'react';
+// import React from 'react'; import CampaignList from './campaignList'; import
+// Header from './header'; import Tabs from './tabs';
+import React, { useState } from 'react';
 import Calendar from '../assets/images/calendar.png';
 import Csv from '../assets/images/file.png';
 import PriceingImg from '../assets/images/Price.png';
 import Report from '../assets/images/statistics-report.png';
-import Data from '../dummy';
+import data from '../dummy';
 import '../style.css';
-// import CampaignList from './campaignList';
-// import Header from './header';
-// import Tabs from './tabs';
 
 const time_ago = (time) => {
 
@@ -97,18 +95,18 @@ const time_ago = (time) => {
 const getFormattedDate = (date) => {
 
   var monthNames = [
-    "January",
-    "February",
+    "Jan",
+    "Feb",
     "March",
     "April",
     "May",
     "June",
     "July",
-    "August",
-    "September",
-    "October",
-    "November",
-    "December"
+    "Aug",
+    "Sept",
+    "Oct",
+    "Nov",
+    "Dec"
   ];
 
   var day = date.getDate();
@@ -119,78 +117,96 @@ const getFormattedDate = (date) => {
 
 }
 
+const datePicker = () => {
+  alert("hi")
 
+  return <input type="date"/>
+}
 
-const Header =()=>{
+const Header = () => {
   return <div className="headerBar">
     <div className="wrapper">
-      <div className="header-logo"> 
-      <img src=""/>
+      <div className="header-logo">
+        <img src=""/>
       </div>
     </div>
   </div>
 }
 
-
 // header tabs
-const Tabs = () => {
-
-  const [tabs,
-    setTabs] = useState([
-    {
-      tabBar: "Upcoming Campaigns",
-      active: false
-    }, {
-      tabBar: "Live Campaigns",
-      active: false
-    }, {
-      tabBar: "Past Campaigns",
-      active: false
-    }
-  ])
-
-
-  useEffect(()=>{
-    setTabs(tabs)
-  })
-
-  
-
-  const toggleTab = (index) => {
-    let newTabs = [...tabs];
-    newTabs[index].active = !newTabs[index].active
-    setTabs(newTabs)
-  }
+const Tabs = ({tabs, activeTab, setActiveTab}) => {
 
   return <div className="wrapper">
     <div className="tab-pills">
       {tabs.map((tab, index) => <div
-        className={(tab.active || index === 0)
+        className={(activeTab == index)
         ? "tab-Pill active"
         : "tab-Pill"}
-        onClick={() => toggleTab(index)} key={index}>{tab.tabBar}</div>)}
+        onClick={() => setActiveTab(index)}
+        key={index}>{tab.tabBar}</div>)}
     </div>
 
   </div>
 }
 
-
+function getCampaignType(campaign) {
+  if (new Date() > new Date(campaign.createdOn)) 
+    return "past";
+  else if (new Date(campaign.createdOn) == new Date()) 
+    return "live";
+  else 
+    return "upcoming";
+  }
 // campaign
 const CampaignList = () => {
 
   const [campaigns,
-    setCampaigns] = useState(Data)
+    setCampaigns] = useState(data)
+  const [tabs,
+    setTabs] = useState([
+    {
+      tabBar: "Upcoming Campaigns",
+      name: "upcoming"
+    }, {
+      tabBar: "Live Campaigns",
+      name: "live"
+    }, {
+      tabBar: "Past Campaigns",
+      name: "past"
+    }
+  ]);
+  const [activeTab,
+    setActiveTab] = useState(0);
 
-    // const [tabConent,setTabContent] = userState({activeTab: this.props})
+  // const [tabConent,setTabContent] = userState({activeTab: this.props})
 
+  const changeEventDate = (e) => {
+
+    var myDate = e.target.value;
+    myDate = myDate.split("-");
+    var newDate = myDate[1] + "/" + myDate[0] + "/" + myDate[2];
+
+    console.log(new Date(newDate).getTime())
+
+  }
   console.log(campaigns)
+
+  const handleEventDate = (e, id) => {
+
+    debugger;
+    let newArray = campaigns.data;
+    let data = [...newArray]
+    data[id].createdOn = e.target.value;
+    // var newss = newEventDate
+    setCampaigns(campaigns.data)
+
+  }
 
   return (
     <React.Fragment>
 
-      <Header/>
-      {/* {Header()} */}
-      {Tabs()}
+      <Header/> {/* {Header()} */}
+      <Tabs tabs={tabs} setActiveTab={setActiveTab} activeTab={activeTab}/>
       <div className="wrapper">
         <div className="Rtable Rtable--5cols Rtable--collapse">
           <div className="Rtable-row Rtable-row--head">
@@ -203,50 +219,43 @@ const CampaignList = () => {
           {campaigns
             .data
             .map((campaign, index) => {
-              return (
-                <div className="Rtable-row" key={index}>
-                  <div className="Rtable-cell date-cell">
-                    <div className="Rtable-cell--heading">Date</div>
-                    <div className="Rtable-cell--content date-content">
-                      <span className="webinar-date">{getFormattedDate(new Date(campaign.createdOn))}</span><br/>
-                      <span className="font-12 color-grey">{time_ago(campaign.createdOn)}</span>
-                    </div>
-                  </div>
-                  <div className="Rtable-cell topic-cell">
-                    <div className="Rtable-cell--image"><img src={Calendar}/></div>
-                    <div className="Rtable-cell--content title-content">
-                      <span className="title">{campaign.name}</span>
-                      <span className="font-12 color-grey">{campaign.region}</span>
-                    </div>
-
-                  </div>
-                  <div className="Rtable-cell access-link-cell">
-                    <div className="Rtable-cell--heading">View</div>
-                    <div className="Rtable-cell--content access-link-content">
-                      <a href="#0">
-                        <img src={PriceingImg}/>
-                        <span>View Pricing</span>
-                      </a>
-                    </div>
-                  </div>
-                  <div className="Rtable-cell replay-link-cell">
-                    <div className="Rtable-cell--heading">Actions</div>
-                    <div className="Rtable-cell--content replay-link-content">
-                      <a href="#0">
-                        <img src={Report}/>
-                        <span>Csv</span>
-                      </a>
-                      <a href="#0">
-                        <img src={Csv}/>
-                        <span>Report</span>
-                      </a>
-                      <a href="#0">
-                        <img src={Calendar}/>
-                        <span>Schedule Again</span>
-                      </a>
-                    </div>
-                  </div>
+              return ((tabs[activeTab].name == getCampaignType(campaign)) &&< div className = "Rtable-row" key = {
+                index
+              } > <div className="Rtable-cell date-cell">
+                <div className="Rtable-cell--heading">Date</div>
+                <div className="Rtable-cell--content date-content">
+                  <span className="webinar-date">{getFormattedDate(new Date(campaign.createdOn))}</span>
+                  <span className="font-12 color-grey">{time_ago(campaign.createdOn)}</span>
                 </div>
+              </div> < div className = "Rtable-cell topic-cell" > <div className="Rtable-cell--image"><img src={campaign.image_url}/></div> < div className = "Rtable-cell--content title-content" > <span className="title">{campaign.name}</span> < span className = "font-12 color-grey" > {
+                campaign.region
+              }  </span>
+                    </div > </div> < div className = "Rtable-cell access-link-cell" > <div className="Rtable-cell--heading">View</div> < div className = "Rtable-cell--content access-link-content" > <a target="_blank" href="#0">
+                <img src={PriceingImg}/>
+                <span>View Pricing</span>
+              </a>  </div>
+                  </div > <div className="Rtable-cell replay-link-cell">
+                <div className="Rtable-cell--heading">Actions</div>
+                <div className="Rtable-cell--content replay-link-content">
+                  <a target="_blank" href={campaign.report}>
+                    <img src={Report}/>
+                    <span>Report</span>
+                  </a>
+                  <a target="_blank" href="#0">
+                    <img src={Csv}/>
+                    <span>Csv</span>
+                  </a>
+                  <a target="_blank">
+                    <img src={Calendar}/>
+                    <span>Schedule Again
+                      <input
+                        onChange={e => handleEventDate(e, index)}
+                        value={new Date(campaign.createdOn).getDate() + "/" + new Date(campaign.createdOn).getMonth() + "/" + new Date(campaign.createdOn).getFullYear()}/>
+
+                    </span>
+                  </a>
+                </div>
+              </div>  </div>
               )
             })}
 
